@@ -3,33 +3,20 @@ function Get-DoxyMeSessions {
     [cmdletbinding()]
     <#
 .SYNOPSIS
-
-    Get-DoxyMeSessions returns a list of sessions from the DoxyMe 
-    
+Get-DoxyMeSessions returns a list of sessions from the DoxyMe 
 .PARAMETER Username
-
 A DoxyMe username with admin or owner rights to the entity being exported
-
 .PARAMETER Password
-
 The password for the account specified by the Username parameter
-
 .EXAMPLE
-
 #get the sessions
 Get-DoxyMeSessions -Username "user@tenant.com" -Password "$up3r$3cur3"
-
 .EXAMPLE
-
 #pretty print those sessions to the screen, sorting by starttime, and only showing the things you want to see
 Get-DoxyMeSessions -Username "user@tenant.com" -Password "$up3r$3cur3" | Sort-Object -Property startTime | Format-Table -Property providerFirstName, providerLastName, startTime, durationSeconds
-
 .EXAMPLE
-
 #send those sessions to a CSV file so you can fiddle with them in Excel
 Get-DoxyMeSessions -Username "user@tenant.com" -Password "$up3r$3cur3" | Sort-Object -Property startTime | Export-Csv -Path .\doxyme-sessions.csv
-
-
 #>
     param(
         [parameter(Mandatory = $true, HelpMessage = "You must supply a username")]
@@ -78,9 +65,6 @@ Get-DoxyMeSessions -Username "user@tenant.com" -Password "$up3r$3cur3" | Sort-Ob
 
             #output the session data
             $session_history
-        
-
-
         }
         catch {
             "Oops, something went wrong!"
